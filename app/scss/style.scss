@@ -1,3 +1,150 @@
-body {
-  background-color: blue;
+@import 'normalize.css/normalize';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
+$red: #E5261E;
+$font: 'Rubik', sans-serif;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1180px;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 180px;
+  
+  &__text {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: $font;
+  }
+}
+
+.search-form {
+  display: flex;
+  width: 420px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: $font;
+  box-sizing: border-box;
+  
+  &__input {
+    width: 320px;
+    border: none;
+    border-bottom: 1px solid #333;
+  }
+
+  &__button {
+    border: none;
+    background: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: $red;
+    padding: 0;
+    width: 50px;
+    margin-left: 30px;
+  }
+}
+
+.sing-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  width: 113px;
+  border-radius: 4px;
+  background-color: $red;
+  text-decoration: none;
+  font-family: $font;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  font-family: $font;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+}
+
+.new {
+  display: grid;
+  grid-template-columns: repeat(4, 280px);
+  grid-template-rows: 2fr;
+  column-gap: 20px;
+
+  &__title {
+    grid-column: 1 / span 4;
+    font-family: $font;
+    font-weight: 500;
+    font-size: 24px;
+  }
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  &__img {
+    position: relative;
+    border-radius: 8px;
+    z-index: 1;
+    &::after {
+      // display: block;
+      content: 'rfrjhfrfjhrlkjfh';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(51, 51, 51);
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+    // &::after:hover {
+      // background: rgba(51, 51, 51, 0.8);
+      // opacity: 1;
+    // }
+  }
+
+  &__title {
+    font-family: $font;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: $font;
+    font-weight: 400;
+    font-size: 16px;
+  }
 }

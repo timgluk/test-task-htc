@@ -36,7 +36,9 @@ function images() {
 }
 
 function scripts() {
-  return src(["node_modules/jquery/dist/jquery.js", "app/js/main.js"])
+  return src([
+      "app/js/main.js"
+     ])
     .pipe(concat("main.min.js"))
     .pipe(uglify())
     .pipe(dest("app/js"))
@@ -45,7 +47,10 @@ function scripts() {
 
 function styles() {
   return src("app/scss/style.scss")
-    .pipe(sass({ outputStyle: "compressed" }))
+    .pipe(sass({
+      includePaths: ['./node_modules'],
+      outputStyle: "compressed"
+     }))
     .pipe(concat("style.min.css"))
     .pipe(
       autoprefixer({
