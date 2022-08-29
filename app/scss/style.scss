@@ -88,8 +88,8 @@ $font: 'Rubik', sans-serif;
   gap: 25px;
   font-family: $font;
   font-weight: 500;
-  font-size: 28px;
-  line-height: 33px;
+  font-size: 18px;
+  // line-height: 33px;
 }
 
 .new {
@@ -110,29 +110,62 @@ $font: 'Rubik', sans-serif;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  transition: all 0.25s ease;
 
-  &__img {
+  &__img-box {
     position: relative;
-    border-radius: 8px;
-    z-index: 1;
+    width: 100%;
+
     &::after {
-      // display: block;
-      content: 'rfrjhfrfjhrlkjfh';
+      content: "";
+      border-radius: 8px;
       position: absolute;
       top: 0;
+      bottom: 0;
       left: 0;
       right: 0;
-      bottom: 0;
-      background-color: rgba(51, 51, 51);
-      opacity: 1;
-      width: 100%;
-      height: 100%;
-      z-index: 10;
+      transition: all 0.3s ease;
+      opacity: 0;
     }
-    // &::after:hover {
-      // background: rgba(51, 51, 51, 0.8);
-      // opacity: 1;
-    // }
+
+    &:hover::after {
+      background: #333333;
+      opacity: 0.8;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border-radius: 8px;
+  }
+
+  &__description {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    margin: 0;
+    font-family: $font;
+    font-weight: 400;
+    font-size: 16px;
+    color: #F2F2F2;
+    z-index: -2;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    transform: translateY(50%);
+
+    &_hover {
+      z-index: 3;
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   &__title {
@@ -140,11 +173,6 @@ $font: 'Rubik', sans-serif;
     font-weight: 400;
     font-size: 20px;
     margin: 0;
-  }
-
-  &__description {
-    font-family: $font;
-    font-weight: 400;
-    font-size: 16px;
+    z-index: 5;
   }
 }
