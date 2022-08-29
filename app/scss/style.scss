@@ -36,7 +36,7 @@ $font: 'Rubik', sans-serif;
 
 .search-form {
   display: flex;
-  width: 420px;
+  width: 475px;
   font-size: 16px;
   font-weight: 400;
   font-family: $font;
@@ -44,6 +44,7 @@ $font: 'Rubik', sans-serif;
   
   &__input {
     width: 320px;
+    height: 33px;
     border: none;
     border-bottom: 1px solid #333;
   }
@@ -89,7 +90,7 @@ $font: 'Rubik', sans-serif;
   font-family: $font;
   font-weight: 500;
   font-size: 18px;
-  // line-height: 33px;
+  margin-top: 24px;
 }
 
 .new {
@@ -103,6 +104,7 @@ $font: 'Rubik', sans-serif;
     font-family: $font;
     font-weight: 500;
     font-size: 24px;
+    margin: 18px 0;
   }
 }
 
@@ -115,6 +117,7 @@ $font: 'Rubik', sans-serif;
   &__img-box {
     position: relative;
     width: 100%;
+    cursor: pointer;
 
     &::after {
       content: "";
@@ -153,6 +156,7 @@ $font: 'Rubik', sans-serif;
     font-family: $font;
     font-weight: 400;
     font-size: 16px;
+    line-height: 23px;
     color: #F2F2F2;
     z-index: -2;
     visibility: hidden;
@@ -174,5 +178,111 @@ $font: 'Rubik', sans-serif;
     font-size: 20px;
     margin: 0;
     z-index: 5;
+  }
+}
+
+.genres {
+  display: grid;
+  grid-template-columns: repeat(4, 280px);
+  column-gap: 20px;
+  margin-top: 12px;
+
+  &__title {
+    grid-column: 1 / span 4;
+    font-family: $font;
+    font-weight: 500;
+    font-size: 24px;
+  }
+}
+
+.genre {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 208px;
+  opacity: 0.8;
+  box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: 0;
+
+  &_comedy {
+    background: linear-gradient(127.83deg, #F2C94C 8.44%, #F29A4A 91.36%);
+  }
+
+  &_drama {
+    background: linear-gradient(127.83deg, #F2994A 8.44%, #EB5757 91.36%);
+  }
+
+  &_fantasy {
+    background: linear-gradient(127.83deg, #56CCF2 8.44%, #2F80ED 91.36%);
+  }
+
+  &_horror {
+    background: linear-gradient(127.83deg, #828282 8.44%, #333333 91.36%);
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+  
+  &__emoji {
+    font-size: 48px;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 0;
+    font-family: $font;
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+  background-color: #F2F2F2;
+  font-family: $font;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1180px;
+    width: 100%;
+    height: 120px;
+    align-items: center;
+    // margin-top: 22px;
+    gap: 40px;
+  }
+
+  &__contacts-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    // height: 65px;
+    gap: 6px;
+    box-sizing: border-box;
+  }
+
+  &__contacts {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #333;
+    margin: 0;
+    // margin-bottom: 6px;
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 16px;
+    // padding-top: 10px;
   }
 }

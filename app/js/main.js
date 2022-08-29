@@ -1,7 +1,7 @@
 /* анимация section "new" */
 const imgBox = [...document.querySelectorAll('.preview__img-box')];
 
-imgBox.map((elem) => {
+imgBox.forEach((elem) => {
   elem.addEventListener('mouseenter', (e) => {
     const prevDesc = e.target.querySelector('.preview__description');
     if (prevDesc.classList.contains('preview__description')) {
