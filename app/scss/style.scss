@@ -4,6 +4,12 @@
 $red: #E5261E;
 $font: 'Rubik', sans-serif;
 
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -81,6 +87,8 @@ $font: 'Rubik', sans-serif;
   flex-direction: column;
   width: 100%;
   align-items: center;
+  flex: 1 1 auto;
+  justify-content: space-around;
 }
 
 .tabs {
@@ -94,29 +102,49 @@ $font: 'Rubik', sans-serif;
 }
 
 .new {
-  display: grid;
-  grid-template-columns: repeat(4, 280px);
-  grid-template-rows: 2fr;
-  column-gap: 20px;
+  // display: grid;
+  // grid-template-columns: repeat(4, 280px);
+  // grid-template-rows: 2fr;
+  // column-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1180px;
+  width: 100%;
+  align-items: center;
 
   &__title {
-    grid-column: 1 / span 4;
+    // grid-column: 1 / span 4;
     font-family: $font;
     font-weight: 500;
     font-size: 24px;
     margin: 18px 0;
+    align-self: flex-start;
   }
+}
+
+.new__preview-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  max-width: 1180px;
+  width: 100%;
+  // justify-content: space-between;
 }
 
 .preview {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  // gap: 15px;
   transition: all 0.25s ease;
+  margin-right: 20px;
+  &_last {
+    margin: 0;
+  }
+  // box-sizing: border-box;
 
   &__img-box {
     position: relative;
-    width: 100%;
+    max-width: 280px;
     cursor: pointer;
 
     &::after {
@@ -178,12 +206,14 @@ $font: 'Rubik', sans-serif;
     font-size: 20px;
     margin: 0;
     z-index: 5;
+    max-width: 280px;
   }
 }
 
 .genres {
   display: grid;
   grid-template-columns: repeat(4, 280px);
+  grid-template-rows: 2fr;
   column-gap: 20px;
   margin-top: 12px;
 
