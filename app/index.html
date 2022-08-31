@@ -47,61 +47,70 @@
     </header>
     <main class="main">
       <section class="tabs">
-        <h2 class="tabs__title">Фильмы</h2>
-        <h2 class="tabs__title">Телеканалы</h2>
+        <h2 class="tabs__title" data-tab="films">Фильмы</h2>
+        <h2 class="tabs__title" data-tab="tv">Телеканалы</h2>
       </section>
-      <section class="new">
-        <h3 class="new__title"><span>&#128293;</span> Новинки</h3>
-        <div class="new__preview-wrapper">
-          <div class="preview">
-            <div class="preview__img-box">
-              <img class="preview__img" src="./images/image.jpg" alt="Мульт в кино" />
-              <p class="preview__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda iure ipsum eos debitis aliquid esse quasi natus aspernatur, facere delectus, ad itaque accusamus excepturi obcaecati iusto, a nihil explicabo tempore.</p>
+      <!-- <div class="content-wrapper"> -->
+        <div class="content " data-tab="films">
+          <section class="new">
+            <h3 class="new__title"><span>&#128293;</span> Новинки</h3>
+            <div class="new__preview-wrapper">
+              <div class="preview">
+                <div class="preview__img-box">
+                  <img class="preview__img" src="./images/image.jpg" alt="Мульт в кино" />
+                  <p class="preview__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda iure ipsum eos debitis aliquid esse quasi natus aspernatur, facere delectus, ad itaque accusamus excepturi obcaecati iusto, a nihil explicabo tempore.</p>
+                </div>
+                <h4 class="preview__title">Мульт в кино. Выпуск №103. Некогда грустить!</h4>
+              </div>
+              <div class="preview">
+                <div class="preview__img-box">
+                  <img class="preview__img" src="./images/image2.jpg" alt="Новый Бэтмен" />
+                  <p class="preview__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda iure ipsum eos debitis aliquid esse quasi natus aspernatur, facere delectus, ad itaque accusamus excepturi obcaecati iusto, a nihil explicabo tempore.</p>
+                </div>
+                  <h4 class="preview__title">Новый Бэтмен</h4>
+              </div>
+              <div class="preview">
+                <div class="preview__img-box">
+                  <img class="preview__img" src="./images/image3.jpg" alt="Однажды... в Голливуде" />
+                  <p class="preview__description">Фильм повествует о череде событий, произошедших в Голливуде в 1969 году, на закате его «золотого века». Известный актер Рик Далтон и его дублер Клифф Бут пытаются найти свое место в стремительно меняющемся мире киноиндустрии.</p>
+                </div>
+                  <h4 class="preview__title">Однажды... в Голливуде</h4>
+              </div>
+              <div class="preview preview_last">
+                <div class="preview__img-box">
+                  <img class="preview__img" src="./images/image4.jpg" alt="Стриптизёрши" />
+                  <p class="preview__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda iure ipsum eos debitis aliquid esse quasi natus aspernatur, facere delectus, ad itaque accusamus excepturi obcaecati iusto, a nihil explicabo tempore.</p>
+                </div>
+                  <h4 class="preview__title">Стриптизёрши</h4>
+              </div>
             </div>
-            <h4 class="preview__title">Мульт в кино. Выпуск №103. Некогда грустить!</h4>
-          </div>
-          <div class="preview">
-            <div class="preview__img-box">
-              <img class="preview__img" src="./images/image2.jpg" alt="Новый Бэтмен" />
-              <p class="preview__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda iure ipsum eos debitis aliquid esse quasi natus aspernatur, facere delectus, ad itaque accusamus excepturi obcaecati iusto, a nihil explicabo tempore.</p>
+          </section>
+          <section class="genres">
+            <h3 class="new__title">Жанры</h3>
+            <div class="new__preview-wrapper">
+              <a href="#" class="genre genre_comedy">
+                <span class="genre__emoji">&#128513;</span>
+                <h4 class="genre__title">Комедии</h4>
+              </a>
+              <a href="#" class="genre genre_drama">
+                <span class="genre__emoji">&#128557;</span>
+                <h4 class="genre__title">Драмы</h4>
+              </a>
+              <a href="#" class="genre genre_fantasy">
+                <span class="genre__emoji">&#128125;</span>
+                <h4 class="genre__title">Фантастика</h4>
+              </a>
+              <a href="#" class="genre genre_horror">
+                <span class="genre__emoji">&#128123;</span>
+                <h4 class="genre__title">Ужасы</h4>
+              </a>
             </div>
-              <h4 class="preview__title">Новый Бэтмен</h4>
-          </div>
-          <div class="preview">
-            <div class="preview__img-box">
-              <img class="preview__img" src="./images/image3.jpg" alt="Однажды... в Голливуде" />
-              <p class="preview__description">Фильм повествует о череде событий, произошедших в Голливуде в 1969 году, на закате его «золотого века». Известный актер Рик Далтон и его дублер Клифф Бут пытаются найти свое место в стремительно меняющемся мире киноиндустрии.</p>
-            </div>
-              <h4 class="preview__title">Однажды... в Голливуде</h4>
-          </div>
-          <div class="preview preview_last">
-            <div class="preview__img-box">
-              <img class="preview__img" src="./images/image4.jpg" alt="Стриптизёрши" />
-              <p class="preview__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda iure ipsum eos debitis aliquid esse quasi natus aspernatur, facere delectus, ad itaque accusamus excepturi obcaecati iusto, a nihil explicabo tempore.</p>
-            </div>
-              <h4 class="preview__title">Стриптизёрши</h4>
-          </div>
+          </section>
         </div>
-      </section>
-      <section class="genres">
-        <h3 class="new__title">Жанры</h3>
-        <a href="#" class="genre genre_comedy">
-          <span class="genre__emoji">&#128513;</span>
-          <h4 class="genre__title">Комедии</h4>
-        </a>
-        <a href="#" class="genre genre_drama">
-          <span class="genre__emoji">&#128557;</span>
-          <h4 class="genre__title">Драмы</h4>
-        </a>
-        <a href="#" class="genre genre_fantasy">
-          <span class="genre__emoji">&#128125;</span>
-          <h4 class="genre__title">Фантастика</h4>
-        </a>
-        <a href="#" class="genre genre_horror">
-          <span class="genre__emoji">&#128123;</span>
-          <h4 class="genre__title">Ужасы</h4>
-        </a>
-      </section>
+        <div class="content" data-tab="tv">
+          <div style="width: 1000px; height: 500px; background-color:#2F80ED;"></div>
+        </div>
+      <!-- </div> -->
     </main>
     <footer class="footer">
       <div class="footer__container">
@@ -115,6 +124,7 @@
         </div>
       </div>
     </footer>
-    <script src="js/main.min.js"></script>
+    <!-- <script src="js/main.min.js"></script> -->
+    <script src="js/main.js"></script>
   </body>
 </html>
