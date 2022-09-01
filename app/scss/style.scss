@@ -53,6 +53,11 @@ $font: 'Rubik', sans-serif;
     height: 33px;
     border: none;
     border-bottom: 1px solid #333;
+
+    &:active, &:focus {
+      outline:none;
+    }
+
   }
 
   &__button {
@@ -64,6 +69,7 @@ $font: 'Rubik', sans-serif;
     padding: 0;
     width: 50px;
     margin-left: 30px;
+    cursor: pointer;
   }
 }
 
@@ -80,6 +86,10 @@ $font: 'Rubik', sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: #fff;
+
+  &:hover {
+    background-color: #CC221B;
+  }
 }
 
 .main {
@@ -101,21 +111,25 @@ $font: 'Rubik', sans-serif;
   font-size: 18px;
   margin-top: 24px;
 
-  &__title_active {
-    position: relative;
-    color: $red;
+  &__title {
+    cursor: pointer;
 
-    &::after {
-      content: "";
-      width: 100%;
-      border-bottom: 2px solid #e5261e;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin-top: 10px;
+    &_active {
+      position: relative;
+      color: $red;
+
+      &::after {
+        content: "";
+        width: 100%;
+        border-bottom: 2px solid #e5261e;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin-top: 10px;
+      }
     }
   }
 }
