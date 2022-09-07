@@ -22,12 +22,22 @@ const tabs = () => {
   const button = document.querySelector('.tabs'); // ищем элемент с кнопками и записываем в константу
   const content = document.querySelector('.content-wrapper'); // ищем элемент с контентом и записываем в константу
 
-  console.log(button);
-  console.log(content);
+  /* делаем активной вкладку из sessionStorage */
+  const buttonActive = () => {
+    const activeTab = sessionStorage.getItem('active-tab');
 
-  const getActiveTabName = () => // объявляем функцию для получения названия активной вкладки
-    button.querySelector('.tabs__title_active').dataset.tab // возвращаем значение data-tab активной кнопки;
-  ;
+    if (activeTab === 'tv') {
+      button.querySelector('[data-tab="tv"]').classList.add('tabs__title_active');
+    }
+
+    if (activeTab === 'films') {
+      button.querySelector('[data-tab="films"]').classList.add('tabs__title_active');
+    }
+  };
+
+  buttonActive();
+
+  const getActiveTabName = () => button.querySelector('.tabs__title_active').dataset.tab; // возвращаем значение data-tab активной кнопки;
 
   const setActiveContent = () => { // объявляем функцию для установки активного элемента контента
     if (content.querySelector('.content_active')) { // если уже есть активный элемент контента
@@ -42,8 +52,7 @@ const tabs = () => {
 
   setActiveContent(getActiveTabName());
 
-  button.addEventListener('click', (e) => {
-    console.log('click');// при клике на .tabs__head
+  button.addEventListener('click', (e) => { // при клике на .tabs__head
     const caption = e.target.closest('.tabs__title'); // узнаем, был ли клик на кнопке
     if (!caption) return; // если клик был не на кнопке, то прерываем выполнение функции
     if (caption.classList.contains('tabs__title_active')) return; // если клик был на активной кнопке, то тоже прерываем выполнение функции и ничего не делаем
@@ -53,6 +62,10 @@ const tabs = () => {
     }
 
     caption.classList.add('tabs__title_active'); // затем добавляем активный класс кнопке, на которой был клик
+    sessionStorage.setItem('active-tab', caption.dataset.tab); // записываем data атрибут в sessionStorage
+
+    // sessionStorage.setItem('active-tab', caption.dataset.tab);
+    console.log(sessionStorage.getItem('active-tab'));
 
     setActiveContent(getActiveTabName()); // устанавливаем активный элемент контента в соответствии с активной кнопкой
   });
