@@ -469,13 +469,16 @@ html {
   background-color: #fff;
   opacity: 1;
   z-index: 99;
-  padding: 0 36px;
+  padding: 36px;
 
   &__title {
     font-weight: 500;
     font-size: 28px;
     color: #333333;
     align-self: center;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 18px;
   }
 
   &__input {
@@ -483,10 +486,15 @@ html {
     outline: none;
     border-bottom: 1px solid #333333;
     width: 230px;
-    margin-bottom: 20px;
+    height: 30px;
+    margin-bottom: 15px;
     font-weight: 400;
     font-size: 16px;
+    &:active, &:focus {
+      outline:none;
+    }
   }
+  
 }
 
 .checkbox-box {
@@ -494,15 +502,35 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-
+  margin-top: 7px;
   &__checkbox {
-    margin-right: 10px;
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:checked ~ * .checkbox-box__checked {
+      fill: #E5261E;
+    }
+
+    &:focus ~ * .checkbox-box__svg {
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+    }
   }
 
+  &__svg {
+    position: absolute;
+    fill: none;
+  }
+
+  &__label {
+    padding-left: 26px;
+    z-index: 5;
+    user-select: none;
+  }
 }
 
 .sing-in_modal {
   align-self: center;
   margin-top: auto;
-  margin-bottom: 36px;
 }
