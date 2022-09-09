@@ -94,6 +94,7 @@ html {
   font-size: 16px;
   font-weight: 500;
   color: #fff;
+  border: 0;
 
   &:hover {
     background-color: #CC221B;
@@ -455,8 +456,19 @@ html {
   width: 100%;
   height: 100%;
   background-color: rgba(51, 51, 51, 0.6);
-  z-index: 20;
-  overflow: hidden;
+  transition: all 0.5s ease-out;
+  transform: translateY(-100%);
+
+  z-index: -2;
+  opacity: 0;
+  visibility: hidden;
+
+  &_active {
+    transform: translateY(0%);
+    z-index: 20;
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .modal {

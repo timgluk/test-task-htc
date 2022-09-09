@@ -72,3 +72,18 @@ const tabs = () => {
 };
 
 tabs();
+
+/* модалльное окно */
+
+const singInButton = document.querySelector('.sing-in');
+const modal = document.querySelector('.modal-wrapper');
+
+singInButton.addEventListener('click', () => {
+  modal.classList.add('modal-wrapper_active');
+});
+
+modal.addEventListener('click', (e) => {
+  const caption = e.target;
+  if (!caption.classList.contains('modal-wrapper_active')) return;
+  modal.classList.remove('modal-wrapper_active');
+});
