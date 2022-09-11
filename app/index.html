@@ -192,15 +192,18 @@
       </div>
     </footer>
     <div class="modal-wrapper">
-      <div class="modal">
+      <form class="modal" name="modal">
         <h2 class="modal__title">Вход</h2>
         <input type="text"
                class="modal__input"
                placeholder="Логин"
+               name="login"
+               required
         />
-        <input type="text" 
+        <input type="password"
                class="modal__input"
                placeholder="Пароль"
+               name="pass"
         />
         <div class="checkbox-box">
           <input type="checkbox"
@@ -214,8 +217,9 @@
           </svg>
           <label class="checkbox-box__label" for="checkbox">Запомнить</label>
         </div>
-        <a href="#" class="sing-in sing-in_modal">Войти</a>
-      </div>
+        <input class="sing-in_modal" type="submit" name="submit" value="Войти" />
+        <span class="sing-in__span"></span>
+      </form>
     </div>
     <!-- <script src="js/main.min.js"></script> -->
     <script src="js/main.js"></script>

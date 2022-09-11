@@ -87,3 +87,46 @@ modal.addEventListener('click', (e) => {
   if (!caption.classList.contains('modal-wrapper_active')) return;
   modal.classList.remove('modal-wrapper_active');
 });
+
+/* Вход */
+
+const loginForm = document.forms.modal;
+const obj = {};
+
+const box = document.createElement('div');
+const searchForm = document.querySelector('.search-form');
+box.classList.add('sing-up-box');
+box.innerHTML = `<input type="text"
+                        class="sing-up-box__input"
+                        placeholder=""
+                        name="login"
+                  />
+                  <button class="sing-up-box__exit">Выход</button>`;
+
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+
+  // const obj = {};
+  formData.forEach((value, key) => obj[key] = value);
+  console.log(obj);
+  console.log(formData.get('login') === '');
+
+  if (formData.get('login') !== '') {
+    setTimeout(
+      () => modal.classList.remove('modal-wrapper_active'),
+      300,
+    );
+  }
+
+  if (obj.login !== undefined) {
+    const input = box.querySelector('.sing-up-box__input');
+    singInButton.style.display = 'none';
+    searchForm.after(box);
+    input.placeholder = `${obj.login}`;
+    console.log(obj.login);
+    // console.log(input);
+    // box.after(singUp);
+  }
+  // formData.get('login') === '' ? return : modal.classList.remove('modal-wrapper_active');
+});
