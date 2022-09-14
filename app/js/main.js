@@ -91,10 +91,11 @@ modal.addEventListener('click', (e) => {
 /* Вход */
 
 const loginForm = document.forms.modal;
-const obj = {};
+const loginInStorage = sessionStorage.getItem('login');
+const obj = { login: loginInStorage };
 
-const box = document.createElement('div');
 const searchForm = document.querySelector('.search-form');
+const box = document.createElement('div');
 box.classList.add('sing-up-box');
 box.innerHTML = `<input type="text"
                         class="sing-up-box__input"
@@ -103,14 +104,41 @@ box.innerHTML = `<input type="text"
                   />
                   <button class="sing-up-box__exit">Выход</button>`;
 
+const input = box.querySelector('.sing-up-box__input');
+const exit = box.querySelector('.sing-up-box__exit');
+
+const setInput = () => {
+  if (obj.login !== undefined || obj.login !== null) {
+    singInButton.style.display = 'none';
+    searchForm.after(box);
+    input.value = obj.login;
+    box.style.display = 'flex';
+  }
+};
+
+setInput();
+
+const goOut = () => {
+  sessionStorage.clear();
+  singInButton.style.display = 'flex';
+  box.style.display = 'none';
+};
+
+if (obj.login === undefined || obj.login === null) {
+  goOut();
+}
+
+exit.onclick = () => {
+  goOut();
+};
+
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
-
-  // const obj = {};
-  formData.forEach((value, key) => obj[key] = value);
+  formData.forEach((value, key) => { obj[key] = value; });
+  sessionStorage.setItem('login', obj.login);
   console.log(obj);
-  console.log(formData.get('login') === '');
+  console.log(sessionStorage.getItem('login'));
 
   if (formData.get('login') !== '') {
     setTimeout(
@@ -118,15 +146,13 @@ loginForm.addEventListener('submit', (e) => {
       300,
     );
   }
+  setInput();
+});
 
-  if (obj.login !== undefined) {
-    const input = box.querySelector('.sing-up-box__input');
-    singInButton.style.display = 'none';
-    searchForm.after(box);
-    input.placeholder = `${obj.login}`;
-    console.log(obj.login);
-    // console.log(input);
-    // box.after(singUp);
+input.addEventListener('change', () => {
+  console.log(input.value);
+  sessionStorage.setItem('login', input.value);
+  if (input.value === '') {
+    goOut();
   }
-  // formData.get('login') === '' ? return : modal.classList.remove('modal-wrapper_active');
 });
