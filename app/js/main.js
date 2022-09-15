@@ -94,12 +94,12 @@ const loginForm = document.forms.modal;
 const loginInStorage = sessionStorage.getItem('login');
 const obj = { login: loginInStorage };
 
-const searchForm = document.querySelector('.search-form');
+const loginBox = document.querySelector('.login-box');
 const box = document.createElement('div');
 box.classList.add('sing-up-box');
+
 box.innerHTML = `<input type="text"
                         class="sing-up-box__input"
-                        placeholder=""
                         name="login"
                   />
                   <button class="sing-up-box__exit">Выход</button>`;
@@ -110,7 +110,7 @@ const exit = box.querySelector('.sing-up-box__exit');
 const setInput = () => {
   if (obj.login !== undefined || obj.login !== null) {
     singInButton.style.display = 'none';
-    searchForm.after(box);
+    loginBox.append(box);
     input.value = obj.login;
     box.style.display = 'flex';
   }
@@ -137,9 +137,6 @@ loginForm.addEventListener('submit', (e) => {
   const formData = new FormData(e.target);
   formData.forEach((value, key) => { obj[key] = value; });
   sessionStorage.setItem('login', obj.login);
-  console.log(obj);
-  console.log(sessionStorage.getItem('login'));
-
   if (formData.get('login') !== '') {
     setTimeout(
       () => modal.classList.remove('modal-wrapper_active'),
